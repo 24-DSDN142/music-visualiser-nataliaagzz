@@ -7,7 +7,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 background(0);
 rectMode(CENTER);
 textAlign(CENTER);
-textFont('Luminari '); // please use CSS safe fonts
+textFont('Courier New '); // please use CSS safe fonts
 
 if (words == "") {
   wordBrightness = int(wordBrightness * 0.95); //fade brightness 
