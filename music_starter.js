@@ -5,7 +5,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   textFont ('Courier New'); // please use CSS safe fonts
   rectMode (CENTER);
   textSize (2);
-  
+
    // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── TEXT BOX
    fill (0, 0, 0);
    stroke (3, 252, 215);
@@ -54,35 +54,73 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    textSize(20);
    text(words, width/2, height/3);
 
-      // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE TALKING
+
+  // // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE TALKING ORIGINAL
+  // //  about map: // the variable we want to represent, the range the variable has, then the values that i want to sustituion)
+   
+  // let eyeSize = map (drum, 0, 100, 100, 150); // moves eyes de acuerdo a drum in the song
+   
+  // fill (3, 252, 215);
+  // noStroke ();
+  // ellipse (200, 200, eyeSize, eyeSize) // eyes
+  // ellipse (400, 200, eyeSize, eyeSize)
+
+  // fill (255, 255, 255);
+  // noStroke ();
+  // ellipse (230, 220, 20, 20) // highlight in eyes
+  // ellipse (430, 220, 20, 20)
+
+  // let mouthSize = map (vocal, 0, 100, 60, 350); // moves eyes de acuerdo a vocals in the song
+  // fill (3, 252, 215);
+  // rect (300, 400, 300, mouthSize);
+
+  // let teethPosition = 400 - mouthSize / 2;
+  // fill (3, 252, 215);
+  // noStroke ();
+  // ellipse (300, teethPosition, 10);
+  // triangle (250, teethPosition, 350, teethPosition, 300, teethPosition + 50 ) // x values are normal, teeth position is a y value
+  // tooth (300, teethPosition);
+  // tooth (200, teethPosition);
+  // tooth (400, teethPosition);
+
+  // function tooth (toothX, teethPosition) {
+  // triangle (toothX - 50, teethPosition, toothX + 50, teethPosition, toothX, teethPosition + 50 );
+
+  // }
+
+// ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE TALKING
   //  about map: // the variable we want to represent, the range the variable has, then the values that i want to sustituion)
+ push ();
+  let eyeSize = map (drum, 0, 100, 100, 150); // moves eyes de acuerdo a drum in the song
    
-    // let eyeSize = map (drum, 0, 100, 100, 150); // moves eyes de acuerdo a drum in the song
-   
-    // fill (3, 252, 215);
-    // noStroke ();
-    // ellipse (200, 200, eyeSize, eyeSize) // eyes
-    // ellipse (400, 200, eyeSize, eyeSize)
+  fill (3, 252, 215);
+  noStroke ();
+  ellipse (200, 200, eyeSize, eyeSize) // eyes
+  ellipse (400, 200, eyeSize, eyeSize)
 
-    // fill (255, 255, 255);
-    // noStroke ();
-    // ellipse (230, 220, 20, 20) // highlight in eyes
-    // ellipse (430, 220, 20, 20)
-   
-    // let mouthSize = map (vocal, 0, 100, 60, 350); // moves eyes de acuerdo a vocals in the song
-    // fill (3, 252, 215);
-    // rect (300, 400, 300, mouthSize);
-   
-    // let teethPosition = 400 - mouthSize / 2;
-    // fill (3, 252, 215);
-    // noStroke ();
-    // ellipse (300, teethPosition, 10);
-    // triangle (250, teethPosition, 350, teethPosition, 300, teethPosition + 50 ) // x values are normal, teeth position is a y value
-    // tooth (300, teethPosition);
-    // tooth (200, teethPosition);
-    // tooth (400, teethPosition);
+  fill (255, 255, 255);
+  noStroke ();
+  ellipse (230, 220, 20, 20) // highlight in eyes
+  ellipse (430, 220, 20, 20)
 
-    // function tooth (toothX, teethPosition) {
-    // triangle (toothX - 50, teethPosition, toothX + 50, teethPosition, toothX, teethPosition + 50 );
+  let mouthSize = map (vocal, 0, 100, 60, 350); // moves eyes de acuerdo a vocals in the song
+  fill (3, 252, 215);
+  strokeWeight(1);
+  stroke (3, 252, 215);
+  rect (300, 400, 300, mouthSize);
 
+  let teethPosition = 400 - mouthSize / 2;
+  fill (0, 0, 0);
+  strokeWeight(1);
+  stroke (3, 252, 215);
+  triangle (250, teethPosition, 350, teethPosition, 300, teethPosition + 50 ) // x values are normal, teeth position is a y value
+  tooth (300, teethPosition);
+  tooth (200, teethPosition);
+  tooth (400, teethPosition);
+
+  function tooth (toothX, teethPosition) {0
+  triangle (toothX - 50, teethPosition, toothX + 50, teethPosition, toothX, teethPosition + 50 );
   }
+pop ();
+}
+
