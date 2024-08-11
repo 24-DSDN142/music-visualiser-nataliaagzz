@@ -5,8 +5,8 @@ let yOffset = 0;
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
 background(0);
-rectMode(CENTER);
-textAlign(CENTER);
+rectMode(LEFT);
+textAlign(LEFT);
 textFont('Courier New '); // please use CSS safe fonts
 
 if (words == "") {
