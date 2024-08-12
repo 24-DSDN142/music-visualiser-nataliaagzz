@@ -17,11 +17,17 @@ pop ();
 let x = (0, 100);
 let y = (0, 100);
 
+   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE BOX
+   fill (0, 0, 0);
+   stroke (3, 252, 215);
+   // rect(350, 500, 390, 100);
+   rect (100, 500, 140, 170);
+
    // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── TEXT BOX
    fill (0, 0, 0);
    stroke (3, 252, 215);
    // rect(350, 500, 390, 100);
-   rect (100, 500, 150, 150);
+   rect (340, 500, 300, 170);
 
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── LYRICS TEXT
    let bar_spacing = height / 10;
@@ -35,27 +41,27 @@ let y = (0, 100);
   //  fill(0);
   //  //text("vocals", bar_pos_x, height /  2 + 1 * bar_spacing + 8);
  
-   // drum bar is green
-   fill(3, 252, 215);
-   noStroke (0);
-   rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-   fill(0);
-   //text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
+  //  // drum bar is green
+  //  fill(3, 252, 215);
+  //  noStroke (0);
+  //  rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
+  //  fill(0);
+  //  //text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
  
-   // bass bar is blue
-   fill(50, 50, 240);
-   noStroke (0);
-   rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-   fill(0);
-   //text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
+  //  // bass bar is blue
+  //  fill(50, 50, 240);
+  //  noStroke (0);
+  //  rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
+  //  fill(0);
+  //  //text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
  
-  // other bar is white
-   fill(200, 200, 200);
-   noStroke (0);
-   rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-   fill(0);
-   //text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-   fill(255, 255, 0);
+  // // other bar is white
+  //  fill(200, 200, 200);
+  //  noStroke (0);
+  //  rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
+  //  fill(0);
+  //  //text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
+  //  fill(255, 255, 0);
  
    // display "words"
    translate (-90, 250);
@@ -100,30 +106,36 @@ let y = (0, 100);
   // }
 
 // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE TALKING
-  //  about map: // the variable we want to represent, the range the variable has, then the values that i want to sustituion)
- push ();
-  let eyeSize = map (drum, 0, 100, 100, 150); // moves eyes de acuerdo a drum in the song
+//  about map: // the variable we want to represent, the range the variable has, then the values that i want to sustituion)
+  // EYES
+  push ();
+ scale (0.3, 0.3);
+ translate (335, 500); 
+ let eyeSize = map (drum, 0, 100, 100, 150); // moves eyes de acuerdo a drum in the song
    
-  fill (3, 252, 215);
-  noStroke ();
+  fill (0, 0, 0);
+  strokeWeight (25);
+  stroke (3, 252, 215);
   ellipse (200, 200, eyeSize, eyeSize) // eyes
   ellipse (400, 200, eyeSize, eyeSize)
+  
+  // HIGHLIGHT EYES
+  // fill (255, 255, 255);
+  // noStroke ();
+  // ellipse (230, 220, 20, 20) // highlight in eyes
+  // ellipse (430, 220, 20, 20)
 
-  fill (255, 255, 255);
-  noStroke ();
-  ellipse (230, 220, 20, 20) // highlight in eyes
-  ellipse (430, 220, 20, 20)
-
+  // MOUTH
+  translate (5, 40);
   let mouthSize = map (vocal, 0, 100, 60, 350); // moves eyes de acuerdo a vocals in the song
   fill (3, 252, 215);
-  strokeWeight(1);
-  stroke (3, 252, 215);
+  noStroke();
   rect (300, 400, 300, mouthSize);
 
+  //TEETH
   let teethPosition = 400 - mouthSize / 2;
   fill (0, 0, 0);
-  strokeWeight(1);
-  stroke (3, 252, 215);
+  noStroke();
   triangle (250, teethPosition, 350, teethPosition, 300, teethPosition + 50 ) // x values are normal, teeth position is a y value
   tooth (300, teethPosition);
   tooth (200, teethPosition);
@@ -131,9 +143,8 @@ let y = (0, 100);
 
   function tooth (toothX, teethPosition) {0
   triangle (toothX - 50, teethPosition, toothX + 50, teethPosition, toothX, teethPosition + 50 );
-  }
+}
 pop ();
-
 }
 
 // // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── PIXEL PARTICLES MOVING (animating shapes)
