@@ -1,10 +1,21 @@
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
-function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
+function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background (0, 0, 0); // (97, 66, 57)
   textFont ('Courier New'); // please use CSS safe fonts
   rectMode (CENTER);
   textSize (2);
+
+// ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── MOUSE CURSOR
+push ();
+translate (mouseX, mouseY);
+strokeWeight (1);
+stroke (3, 252, 215);
+fill (0, 0, 0);
+circle (0, 0, 30);
+pop ();
+let x = (0, 100);
+let y = (0, 100);
 
    // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── TEXT BOX
    fill (0, 0, 0);
@@ -17,12 +28,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
 
-   // vocal bar is red
-   fill(200, 0, 0);
-   noStroke (0);
-   rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
-   fill(0);
-   //text("vocals", bar_pos_x, height /  2 + 1 * bar_spacing + 8);
+  //  // vocal bar is red
+  //  fill(200, 0, 0);
+  //  noStroke (0);
+  //  rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
+  //  fill(0);
+  //  //text("vocals", bar_pos_x, height /  2 + 1 * bar_spacing + 8);
  
    // drum bar is green
    fill(3, 252, 215);
@@ -122,5 +133,15 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   triangle (toothX - 50, teethPosition, toothX + 50, teethPosition, toothX, teethPosition + 50 );
   }
 pop ();
+
 }
 
+// // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── PIXEL PARTICLES MOVING (animating shapes)
+// var Xmove = 50;
+  
+// function draw () {
+//   fill (255, 3, 3);
+//   ellipse (100+Xmove, 200, 45, 45);
+
+//   Xmove = Xmove + 1;
+// }
