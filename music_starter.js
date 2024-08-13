@@ -6,16 +6,48 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rectMode (CENTER);
   textSize (2);
 
-// ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── MOUSE CURSOR
-push ();
-translate (mouseX, mouseY);
-strokeWeight (1);
-stroke (3, 252, 215);
-fill (0, 0, 0);
-circle (0, 0, 30);
-pop ();
-let x = (0, 100);
-let y = (0, 100);
+  // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── LIFE BAR
+  // LIFE BAR
+  fill (0, 0, 0);
+  strokeWeight (2);
+  stroke (3, 252, 215);
+  rect (130, 30, 200, 20);
+
+  // HEART
+  push ();
+  scale (0.7);
+  noStroke();
+  fill (3, 252, 215);
+  rect (50, 50, 10, 10);
+  rect (40, 50, 10, 10);
+  rect (20, 30, 10, 10);
+  rect (20, 20, 10, 10);
+  rect (70, 20, 10, 10);
+  rect (30, 20, 10, 10);
+  rect (60, 20, 10, 10);
+  rect (70, 30, 10, 10);
+  rect (40, 35, 10, 22);
+  rect (50, 35, 10, 22);
+  rect (30, 35, 10, 20);
+  rect (60, 35, 10, 22);
+  rect (45, 60, 10, 10);
+  fill (0, 0, 0);
+  rect (45, 23, 10, 10);
+pop();
+
+  // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── GRADIENT SHAPE
+
+  
+  // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── MOUSE CURSOR
+    push ();
+    translate (mouseX, mouseY);
+    strokeWeight (1);
+    stroke (3, 252, 215);
+    fill (0, 0, 0);
+    circle (0, 0, 30);
+    pop ();
+    let x = (0, 100);
+    let y = (0, 100);
 
    // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE BOX
    fill (0, 0, 0);
@@ -41,12 +73,15 @@ let y = (0, 100);
   //  fill(0);
   //  //text("vocals", bar_pos_x, height /  2 + 1 * bar_spacing + 8);
  
-  //  // drum bar is green
-  //  fill(3, 252, 215);
-  //  noStroke (0);
-  //  rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-  //  fill(0);
-  //  //text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
+  // //  // drum bar is green
+  //fill(3, 252, 215);
+  // fillGradient('radial', 
+  //   from : [200, 200, 0], // x, y, radius
+  //   to : [200, 200, 200], // x, y, radius 
+  //   )
+  // rect (bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
+  // text fill(0);
+  //text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
  
   //  // bass bar is blue
   //  fill(50, 50, 240);
@@ -106,9 +141,9 @@ let y = (0, 100);
   // }
 
 // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE TALKING
-//  about map: // the variable we want to represent, the range the variable has, then the values that i want to sustituion)
-  // EYES
-  push ();
+//  about map: the variable we want to represent, the range the variable has, then the values that i want to sustituion)
+// EYES
+ push ();
  scale (0.3, 0.3);
  translate (335, 500); 
  let eyeSize = map (drum, 0, 100, 100, 150); // moves eyes de acuerdo a drum in the song
@@ -120,10 +155,10 @@ let y = (0, 100);
   ellipse (400, 200, eyeSize, eyeSize)
   
   // HIGHLIGHT EYES
-  // fill (255, 255, 255);
-  // noStroke ();
-  // ellipse (230, 220, 20, 20) // highlight in eyes
-  // ellipse (430, 220, 20, 20)
+  fill (255, 255, 255);
+  noStroke ();
+  ellipse (230, 220, 30, 30) // highlight in eyes
+  ellipse (430, 220, 30, 30)
 
   // MOUTH
   translate (5, 40);
@@ -147,7 +182,7 @@ let y = (0, 100);
 pop ();
 }
 
-// // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── PIXEL PARTICLES MOVING (animating shapes)
+// ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── PIXEL PARTICLES MOVING (animating shapes)
 // var Xmove = 50;
   
 // function draw () {
