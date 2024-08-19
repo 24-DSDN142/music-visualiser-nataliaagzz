@@ -1,15 +1,32 @@
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
+// rain falling
 let ypos = 0;
 let ypos2 = -20;
 let ypos3 = -40;
 let ypos4 = -200;
 let ypos5 = -300;
+let ypos6 = -350;
+// image seq
+let Girl = [];
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(0, 0, 0); // (97, 66, 57)
   textFont('Courier New'); // please use CSS safe fonts
   rectMode(CENTER);
   textSize(2);
-  
+  Girl.push(loadImage('walking1.png'));
+  Girl.push(loadImage('walking2.png'));
+  Girl.push(loadImage('walking3.png'));
+
+
+ // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── IMAGE SEQUENCE
+var VocalFrame = int(map(vocal, 0, 100, 0, 3));
+
+console.log(VocalFrame);
+push();
+scale(1);
+image(Girl[VocalFrame], width/2.5, height/2.5);
+pop();
+
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── MOUSE CURSOR
   push();
   translate(mouseX, mouseY);
@@ -24,31 +41,33 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── RAIN FALLING
   fill(3, 252, 215);
   noStroke(0);
-  //ellipse(100, ypos, 5 );
   rect (50, ypos, 5, 5);
   rect (100, ypos2, 5, 5);
   rect (400, ypos3, 5, 5);
   rect (550, ypos4, 5, 5);
   rect (550, ypos5, 5, 5);
+  rect (300, ypos6, 5, 5);
   ypos++
   ypos2++
   ypos3++
   ypos4++
   ypos5++
+  ypos6++
   
-  if (ypos > 500) {
+  if (ypos > 1000) {
     ypos = 0;
     ypos2 = -20;
     ypos3 = -40;
     ypos4 = -100;
     ypos5 = -300;
+    ypos6 = -350;
   }
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── BASSMAP BARS
   
   strokeWeight(1);
   stroke(bass, 92, 80);
 
-  var bassMap = map(bass, 0, 200, 30, 90);
+  var bassMap = map(bass, 0, 100, 0, 200);
   var lengthOfLine = 300;
   var LineStart = 300;
   var lineEnd = LineStart + lengthOfLine;
@@ -58,8 +77,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   // line(LineStart, 320, lineEnd, 320);
   
   for (var i = 1; i < bassMap; i++) {
-    var lineStep = i + 10;
-    line(LineStart, lineStep, lineEnd, lineStep);
+    var lineStep = i;
+    //line(LineStart, 30, lineEnd, 90);
+    line(width-lineStep, 30, width-lineStep, 90);
   }
 
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── LIFE BAR
@@ -105,7 +125,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   fill(0, 0, 0);
   stroke(3, 252, 215);
   // rect(350, 500, 390, 100);
-  rect(340, 500, 300, 170);
+  rect(360, 500, 350, 170);
   
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── LYRICS TEXT
   let bar_spacing = height / 10;
