@@ -14,17 +14,17 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rectMode(CENTER);
   textSize(2);
   Girl.push(loadImage('walking1.png'));
+  Girl.push(loadImage('walking3.png'));
   Girl.push(loadImage('walking2.png'));
   Girl.push(loadImage('walking3.png'));
 
-
  // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── IMAGE SEQUENCE
-var VocalFrame = int(map(vocal, 0, 100, 0, 3));
+var CounterFrame = int(map(counter, 0, 100, 0, 3));
 
-console.log(VocalFrame);
+console.log(CounterFrame);
 push();
 scale(1);
-image(Girl[VocalFrame], width/2.5, height/2.5);
+image(Girl[CounterFrame], width/2.5, height/2.5);
 pop();
 
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── MOUSE CURSOR
