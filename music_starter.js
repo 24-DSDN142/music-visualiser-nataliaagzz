@@ -6,17 +6,27 @@ let ypos3 = -40;
 let ypos4 = -200;
 let ypos5 = -300;
 let ypos6 = -350;
-// image seq
+let ypos7 = -400;
+// image seq girl n back ground
+// if counter equals 0 
 let Girl = [];
+let BG1 = [];
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(0, 0, 0); // (97, 66, 57)
   textFont('Courier New'); // please use CSS safe fonts
   rectMode(CENTER);
   textSize(2);
-  Girl.push(loadImage('walking1.png'));
-  Girl.push(loadImage('walking3.png'));
-  Girl.push(loadImage('walking2.png'));
-  Girl.push(loadImage('walking3.png'));
+  if (counter == 0) {
+    Girl.push(loadImage('walking1.png'));
+    Girl.push(loadImage('walking3.png'));
+    Girl.push(loadImage('walking2.png'));
+    Girl.push(loadImage('walking3.png'));
+    BG1.push(loadImage('BG1.png'));
+  }
+
+
+// image seq background
+image (BG1[[0]], 0, 50);
 
  // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── IMAGE SEQUENCE
 var CounterFrame = int(map(counter, 0, 100, 0, 3));
@@ -47,12 +57,14 @@ pop();
   rect (550, ypos4, 5, 5);
   rect (550, ypos5, 5, 5);
   rect (300, ypos6, 5, 5);
+  rect (400, ypos7, 5, 5);
   ypos++
   ypos2++
   ypos3++
   ypos4++
   ypos5++
   ypos6++
+  ypos7++
   
   if (ypos > 1000) {
     ypos = 0;
@@ -61,15 +73,35 @@ pop();
     ypos4 = -100;
     ypos5 = -300;
     ypos6 = -350;
+    ypos7 = -400;
   }
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── BASSMAP BARS
+  // 1
+   strokeWeight(1);
+   stroke(bass, 92, 80);
+
+   var bassMap = map(bass, 0, 100, 0, 200);
+   var lengthOfLine = 300;
+   var LineStart = 300;
+   var lineEnd = LineStart + lengthOfLine;
+
+   // line(LineStart, 300, lineEnd, 300);
+   // line(LineStart, 310, lineEnd, 310);
+   // line(LineStart, 320, lineEnd, 320);
   
+   for (var i = 1; i < bassMap; i++) {
+     var lineStep = i;
+     //line(LineStart, 30, lineEnd, 90);
+     line(width-lineStep, 30, width-lineStep, 50);
+   }
+
+   // 2 
   strokeWeight(1);
   stroke(bass, 92, 80);
 
-  var bassMap = map(bass, 0, 100, 0, 200);
-  var lengthOfLine = 300;
-  var LineStart = 300;
+  var bassMap = map(bass, 0, 50, 0, 20);
+  var lengthOfLine = 500;
+  var LineStart = 500;
   var lineEnd = LineStart + lengthOfLine;
 
   // line(LineStart, 300, lineEnd, 300);
@@ -79,7 +111,26 @@ pop();
   for (var i = 1; i < bassMap; i++) {
     var lineStep = i;
     //line(LineStart, 30, lineEnd, 90);
-    line(width-lineStep, 30, width-lineStep, 90);
+    line(width-lineStep, 100, width-lineStep, 120);
+  }
+
+  // 3
+  strokeWeight(1);
+  stroke(bass, 92, 80);
+
+  var bassMap = map(bass, 0, 50, 0, 20);
+  var lengthOfLine = 250;
+  var LineStart = 250;
+  var lineEnd = LineStart + lengthOfLine;
+
+  // line(LineStart, 300, lineEnd, 300);
+  // line(LineStart, 310, lineEnd, 310);
+  // line(LineStart, 320, lineEnd, 320);
+  
+  for (var i = 1; i < bassMap; i++) {
+    var lineStep = i;
+    //line(LineStart, 30, lineEnd, 90);
+    line(width-lineStep, 150, width-lineStep, 170);
   }
 
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── LIFE BAR
