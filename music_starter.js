@@ -21,14 +21,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     Girl.push(loadImage('walking3.png'));
     Girl.push(loadImage('walking2.png'));
     Girl.push(loadImage('walking3.png'));
-    BG1.push(loadImage('BG1.png'));
+    BG1.push(loadImage('background.png'));
   }
 
+// ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── IMAGE SEQUENCE BACKGROUND
+image (BG1[[0]], 0, 140);
 
-// image seq background
-image (BG1[[0]], 0, 50);
-
- // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── IMAGE SEQUENCE
+ // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── IMAGE SEQUENCE GIRL
 var CounterFrame = int(map(counter, 0, 100, 0, 3));
 
 console.log(CounterFrame);
@@ -36,17 +35,6 @@ push();
 scale(1);
 image(Girl[CounterFrame], width/2.5, height/2.5);
 pop();
-
-  // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── MOUSE CURSOR
-  push();
-  translate(mouseX, mouseY);
-  strokeWeight(1);
-  stroke(3, 252, 215);
-  fill(0, 0, 0);
-  circle(0, 0, 30);
-  pop();
-  let x = (0, 100);
-  let y = (0, 100);
   
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── RAIN FALLING
   fill(3, 252, 215);
@@ -104,10 +92,6 @@ pop();
   var LineStart = 500;
   var lineEnd = LineStart + lengthOfLine;
 
-  // line(LineStart, 300, lineEnd, 300);
-  // line(LineStart, 310, lineEnd, 310);
-  // line(LineStart, 320, lineEnd, 320);
-  
   for (var i = 1; i < bassMap; i++) {
     var lineStep = i;
     //line(LineStart, 30, lineEnd, 90);
@@ -122,15 +106,26 @@ pop();
   var lengthOfLine = 250;
   var LineStart = 250;
   var lineEnd = LineStart + lengthOfLine;
-
-  // line(LineStart, 300, lineEnd, 300);
-  // line(LineStart, 310, lineEnd, 310);
-  // line(LineStart, 320, lineEnd, 320);
   
   for (var i = 1; i < bassMap; i++) {
     var lineStep = i;
     //line(LineStart, 30, lineEnd, 90);
     line(width-lineStep, 150, width-lineStep, 170);
+  }
+
+  // 4 // LEFT
+  strokeWeight(1);
+  stroke(bass, 92, 80);
+
+  var bassMap = map(bass, 0, 50, 0, 90);
+  var lengthOfLine = 250;
+  var LineStart = 250;
+  var lineEnd = LineStart + lengthOfLine;
+  
+  for (var i = 1; i < bassMap; i++) {
+    var lineStep = i;
+    //line(LineStart, 30, lineEnd, 90);
+    line(width+lineStep, 150, width+lineStep, 170);
   }
 
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── LIFE BAR
@@ -183,6 +178,17 @@ pop();
   let bar_height = width / 12;
   let bar_pos_x = width / 2;
   
+// ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── MOUSE CURSOR
+push();
+translate(mouseX, mouseY);
+strokeWeight(1);
+stroke(3, 252, 215);
+noFill();
+circle(0, 0, 30);
+pop();
+let x = (0, 100);
+let y = (0, 100);
+
   //  // vocal bar is red
   //  fill(200, 0, 0);
   //  noStroke (0);
@@ -222,7 +228,7 @@ pop();
   textAlign(LEFT);
   textSize(20);
   text(words, width / 2, height / 3);
-  
+
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE TALKING
   //  about map: the variable we want to represent, the range the variable has, then the values that i want to sustituion)
   // EYES
@@ -264,6 +270,7 @@ pop();
     triangle(toothX - 50, teethPosition, toothX + 50, teethPosition, toothX, teethPosition + 50);
   }
   pop();
+  
   
   
 }
