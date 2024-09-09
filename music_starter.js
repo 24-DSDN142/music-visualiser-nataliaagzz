@@ -24,7 +24,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     Girl.push(loadImage('walking3.png'));
     Girl.push(loadImage('walking2.png'));
     Girl.push(loadImage('walking3.png'));
-    BG1.push(loadImage('background.png'));
+    BG1.push(loadImage('citybg.png'));
   }
 
  // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── LINE BACKGROUND
