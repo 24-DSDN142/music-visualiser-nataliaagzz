@@ -3,9 +3,9 @@ let old_loudest = 0;
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other,counter) {
   //background(20);
-  rectMode(CENTER);
-  textAlign(CENTER);
-  textSize(40);
+  rectMode(LEFT);
+  textAlign(LEFT);
+  textSize(5);
 
   let bar_spacing = width/5;
   let bar_pos_y = 2*height/3;
