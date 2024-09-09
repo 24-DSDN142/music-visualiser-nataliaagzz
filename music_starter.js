@@ -9,7 +9,6 @@ let ypos6 = -350;
 let ypos7 = -400;
 
 // image seq girl n back ground
-// if counter equals 0 
 let Girl = [];
 let BG1 = [];
 let posX = 0
@@ -54,8 +53,8 @@ var CounterFrame = int(map(counter, 0, 100, 0, 3));
 
 console.log(CounterFrame);
 push();
-scale(1);
-image(Girl[CounterFrame], width/2.5, height/2.5);
+scale(0.95);
+image(Girl[CounterFrame], width/2.4, height/2.35);
 pop();
   
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── RAIN FALLING
@@ -138,14 +137,12 @@ pop();
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── LIFE BAR
 
   // LIFE BAR INSIDE
+  let siz = 1
+  push();
+  scale (siz - counter*0.00009, 1); 
   fill(3, 252, 215);
-  rect(130, 30, 200, 20);
-
-  // if (counter >= 0.1){
-
-  //   rect (-posX, 140); 
-  //   posX+=0.1
-  // }
+  rect(130+counter*0.005, 30, 200, 20);
+  pop();
 
   // LIFE BAR OUTER
   noFill();
@@ -174,8 +171,6 @@ pop();
   fill(0, 0, 0);
   rect(45, 23, 10, 10);
   pop();
-  
-  // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── GRADIENT SHAPE
 
   // ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── FACE BOX
   fill(0, 0, 0);
